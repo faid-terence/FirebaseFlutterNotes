@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285485147857",
+    "project_id": "codextreme-31170",
+    "storage_bucket": "codextreme-31170.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285485147857:android:df8695a6ffb456381247f0",
+        "android_client_info": {
+          "package_name": "com.example.flutter_simple_auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHDErfV3U3rM6fESjuW1Dy0geTFlcwQi4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
