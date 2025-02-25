@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_simple_auth/components/custom_button.dart';
@@ -29,11 +27,10 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       if (passwordController.text.isEmpty || emailController.text.isEmpty) {
         // pop loader
-        if (context.mounted) {
+        if (mounted) {
           Navigator.pop(context);
         }
 
-        // show error message
         displayMessageToUser(context, "Please fill all fields", Colors.red);
         return;
       }
@@ -44,29 +41,30 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       // pop loader
-      if (context.mounted) {
-        Navigator.pop(context);
-      }
+      if (!mounted) return;
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       // pop loader
-      if (context.mounted) {
-        Navigator.pop(context);
-      }
+      if (!mounted) return;
+      Navigator.pop(context);
 
       // show error message
-      displayMessageToUser(
-        context,
-        e.message ?? "An error occurred",
-        Colors.red,
-      );
+      if (mounted) {
+        displayMessageToUser(
+          context,
+          e.message ?? "An error occurred",
+          Colors.red,
+        );
+      }
     } catch (e) {
       // pop loader
-      if (context.mounted) {
-        Navigator.pop(context);
-      }
+      if (!mounted) return;
+      Navigator.pop(context);
 
       // show error message
-      displayMessageToUser(context, e.toString(), Colors.red);
+      if (mounted) {
+        displayMessageToUser(context, e.toString(), Colors.red);
+      }
     }
   }
 
